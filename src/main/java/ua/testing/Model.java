@@ -11,15 +11,17 @@ public class Model {
     public int getLowerBound() {
         return lowerBound;
     }
+
     public int getUpperBound() {
         return upperBound;
     }
+
     public void setNumber(int number) {
         this.number = number;
     }
 
     public void setBounds(int firstBound, int secondBound) {
-        if(firstBound<secondBound){
+        if (firstBound < secondBound) {
             this.lowerBound = firstBound;
             this.upperBound = secondBound;
         } else {
@@ -29,34 +31,33 @@ public class Model {
     }
 
     public void generateNumber() {
-        this.number = new Random().nextInt(upperBound)+lowerBound;
+        this.number = new Random().nextInt(upperBound) + lowerBound;
     }
 
-    public boolean compareNumber(int number){
+    public boolean compareNumber(int number) {
         return this.number == number;
     }
 
-    public void updateBounds(int newBound){
+    public void updateBounds(int newBound) {
         if (number > newBound) {
             lowerBound = newBound + 1;
-        }
-        else if(number < newBound) {
+        } else if (number < newBound) {
             upperBound = newBound - 1;
-        }
-        else{
+        } else {
             lowerBound = newBound;
             upperBound = newBound;
         }
 
     }
-    public boolean isNumberInInterval(int number){
-        return number<=upperBound && number>=lowerBound;
+
+    public boolean isNumberInInterval(int number) {
+        return number <= upperBound && number >= lowerBound;
     }
-    public String moreOrLess(int number){
+
+    public String moreOrLess(int number) {
         if (this.number > number) {
             return GlobalConstants.MORE;
-        }
-        else {
+        } else {
             return GlobalConstants.LESS;
         }
     }

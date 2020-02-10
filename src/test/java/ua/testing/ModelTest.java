@@ -36,6 +36,7 @@ public class ModelTest {
         assertFalse(model.compareNumber(3));
 
     }
+
     @Test
     public void compareNumberEqual() {
         Model model = new Model();
@@ -50,14 +51,15 @@ public class ModelTest {
         model.setBounds(1, 99);
         model.generateNumber();
         boolean numberFound = false;
-        for(int i=1; i<=99;i++){
-            if(model.compareNumber(i)) {
+        for (int i = 1; i <= 99; i++) {
+            if (model.compareNumber(i)) {
                 numberFound = true;
                 break;
             }
         }
         assertTrue(numberFound);
     }
+
     @Test
     public void generateNumberEqualBounds() {
         Model model = new Model();
@@ -75,6 +77,7 @@ public class ModelTest {
         assertTrue(1 == model.getLowerBound() && 43 == model.getUpperBound());
 
     }
+
     @Test
     public void updateBoundsLowerBound() {
         Model model = new Model();
@@ -83,6 +86,7 @@ public class ModelTest {
         model.updateBounds(33);
         assertTrue((34 == model.getLowerBound()) && (99 == model.getUpperBound()));
     }
+
     @Test
     public void updateBoundsWithCorrectNumber() {
         Model model = new Model();
@@ -99,24 +103,28 @@ public class ModelTest {
         model.setNumber(44);
         assertTrue(model.isNumberInInterval(54));
     }
+
     @Test
     public void isNumberInIntervalLowerBound() {
         Model model = new Model();
         model.setBounds(1, 99);
         assertTrue(model.isNumberInInterval(1));
     }
+
     @Test
     public void isNumberInIntervalUpperBound() {
         Model model = new Model();
         model.setBounds(1, 99);
         assertTrue(model.isNumberInInterval(99));
     }
+
     @Test
     public void isNumberInIntervalFalse1() {
         Model model = new Model();
         model.setBounds(1, 99);
         assertFalse(model.isNumberInInterval(0));
     }
+
     @Test
     public void isNumberInIntervalFalse2() {
         Model model = new Model();
@@ -131,6 +139,7 @@ public class ModelTest {
         model.setNumber(23);
         assertEquals(model.moreOrLess(33), GlobalConstants.LESS);
     }
+
     @Test
     public void moreOrLessLess() {
         Model model = new Model();
